@@ -15,8 +15,7 @@
     "netstandard1.5": {
       "dependencies": {
           "Microsoft.NETCore.App": {
-              "type": "platform",
-              "version": "1.0.0-rc2-24011"
+              "version": "1.0.0-rc2-*"
           }
       },
       "imports": [
