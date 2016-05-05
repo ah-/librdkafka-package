@@ -1,0 +1,38 @@
+{
+    "version": "0.9.1-ci-*",
+
+    "packOptions": {
+        "description": "librdkafka native dependencies",
+        "authors": ["Andreas Heider"]
+    },
+
+    "dependencies": {
+        "RdKafka.Internal.librdkafka-Linux": {
+            "version": "0.9.1-ci-32",
+            "type": "build"
+        },
+        "RdKafka.Internal.librdkafka-Darwin": {
+            "version": "0.9.1-ci-32",
+            "type": "build"
+        },
+        "RdKafka.Internal.librdkafka-Windows": {
+            "version": "0.9.1-ci-32",
+            "type": "build"
+        }
+    },
+
+    "frameworks": {
+        "netstandard1.0": { }
+    },
+
+    "packInclude": {
+        "build/": "build/**",
+        "runtimes/": "runtimes/**"
+    },
+
+    "scripts": {
+        "precompile": [
+            "dotnet run -p ../../tools/Copy.Librdkafka"
+        ]
+    }
+}

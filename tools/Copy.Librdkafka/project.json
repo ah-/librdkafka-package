@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "description": "Copies librdkafka shared libs into runtimes/ on build",
+
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.Extensions.PlatformAbstractions": "1.0.0-*",
+    "Newtonsoft.Json": "8.0.3"
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "dependencies": {
+          "Microsoft.NETCore.App": {
+              "type": "platform",
+              "version": "1.0.0-rc2-24011"
+          }
+      },
+      "imports": [
+        "dnxcore50"
+      ]
+    }
+  }
+}

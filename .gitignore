@@ -1,0 +1,14 @@
+project.lock.json
+bin/
+obj/
+*.so
+*.dylib
+*.dll
+*.csproj.user
+*.xproj.user
+.vs
+.cache
+Properties
+packages/
+runtimes/
+nuget.exe
