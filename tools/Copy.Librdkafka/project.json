@@ -15,12 +15,17 @@
     "netstandard1.5": {
       "dependencies": {
           "Microsoft.NETCore.App": {
-              "version": "1.0.0-*"
+              "version": "1.0.0-rc2-*"
           }
       },
       "imports": [
         "dnxcore50"
       ]
     }
+  },
+
+  "runtimes": {
+      "osx.10.11-x64": {},
+      "ubuntu.14.04-x64": {}
   }
 }
