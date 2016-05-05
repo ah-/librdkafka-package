@@ -1,4 +1,16 @@
 language: csharp
+sudo: required
+dist: trusty
+
+
+install:
+    - sudo apt-get -y install gdebi
+    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-host-ubuntu-x64.latest.deb
+    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-sharedframework-ubuntu-x64.latest.deb
+    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-sdk-ubuntu-x64.latest.deb
+    - sudo gdebi --non-interactive dotnet-host*
+    - sudo gdebi --non-interactive dotnet-sharedframework*
+    - sudo gdebi --non-interactive dotnet-sdk*
 
 script:
    - ./build.sh
