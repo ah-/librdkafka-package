@@ -3,7 +3,7 @@ set -e
 dotnet restore
 cd src/RdKafka.Internal.librdkafka
 dotnet run -p ../../tools/Copy.Librdkafka
-dotnet pack
+dotnet pack --version-suffix $TRAVIS_BUILD_NUMBER
 
 if [ "$VERSION" = "" ]
 then
