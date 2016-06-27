@@ -50,23 +50,19 @@ namespace Copy.Librdkafka
 #if NET451
             return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 #else
-            var runtimeEnv = PlatformServices.Default.Runtime;
-            if (runtimeEnv.OperatingSystem == "Windows")
-            {
-                return Environment.GetEnvironmentVariable("USERPROFILE") ??
-                    Environment.GetEnvironmentVariable("HOMEDRIVE") + Environment.GetEnvironmentVariable("HOMEPATH");
-            }
-            else
-            {
-                var home = Environment.GetEnvironmentVariable("HOME");
+            string home = Environment.GetEnvironmentVariable("HOME");
 
+            if (string.IsNullOrEmpty(home))
+            {
+                home = Environment.GetEnvironmentVariable("USERPROFILE") ??
+                    Environment.GetEnvironmentVariable("HOMEDRIVE") + Environment.GetEnvironmentVariable("HOMEPATH");
                 if (string.IsNullOrEmpty(home))
                 {
                     throw new Exception("Home directory not found. The HOME environment variable is not set.");
                 }
-
-                return home;
             }
+
+            return home;
 #endif
         }
     }
