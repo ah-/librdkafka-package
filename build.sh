@@ -19,7 +19,7 @@ echo "Version: $VERSION"
 dotnet restore
 cd src/RdKafka.Internal.librdkafka
 dotnet run -p ../../tools/Copy.Librdkafka
-dotnet pack --version-suffix $TRAVIS_BUILD_NUMBER
+dotnet pack $VERSION_SUFFIX
 
 if [ ! "$NUGET_API_KEY" = "" ]
 then
