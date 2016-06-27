@@ -7,7 +7,7 @@ then
     if [ "$VERSION" = "" ]
     then
         VERSION="$BASEVERSION-ci-$TRAVIS_BUILD_NUMBER"
-        VERSION_SUFFIX="--version-suffix $TRAVIS_BUILD_NUMBER"
+        VERSION_SUFFIX="--version-suffix ci-$TRAVIS_BUILD_NUMBER"
     fi
 else
     VERSION="$BASEVERSION"
