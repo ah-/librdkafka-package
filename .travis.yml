@@ -4,13 +4,10 @@ dist: trusty
 
 
 install:
-    - sudo apt-get -y install gdebi
-    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-host-ubuntu-x64.latest.deb
-    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-sharedframework-ubuntu-x64.latest.deb
-    - wget https://dotnetcli.blob.core.windows.net/dotnet/beta/Installers/Latest/dotnet-sdk-ubuntu-x64.latest.deb
-    - sudo gdebi --non-interactive dotnet-host*
-    - sudo gdebi --non-interactive dotnet-sharedframework*
-    - sudo gdebi --non-interactive dotnet-sdk*
+   - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+   - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+   - sudo apt-get update
+   - sudo apt-get install dotnet-dev-1.0.0-preview2-003121
 
 script:
    - ./build.sh

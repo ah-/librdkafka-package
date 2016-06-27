@@ -1,16 +1,25 @@
 set -e
 
+BASEVERSION=0.9.1
+
+if [ -z "$TRAVIS_TAG" ];
+then
+    if [ "$VERSION" = "" ]
+    then
+        VERSION="$BASEVERSION-ci-$TRAVIS_BUILD_NUMBER"
+        VERSION_SUFFIX="--version-suffix $TRAVIS_BUILD_NUMBER"
+    fi
+else
+    VERSION="$BASEVERSION"
+    VERSION_SUFFIX=""
+fi
+
+echo "Version: $VERSION"
+
 dotnet restore
 cd src/RdKafka.Internal.librdkafka
 dotnet run -p ../../tools/Copy.Librdkafka
 dotnet pack --version-suffix $TRAVIS_BUILD_NUMBER
-
-if [ "$VERSION" = "" ]
-then
-    VERSION=0.9.1-ci-$TRAVIS_BUILD_NUMBER
-fi
-
-echo "Version: $VERSION"
 
 if [ ! "$NUGET_API_KEY" = "" ]
 then
