@@ -1,6 +1,6 @@
 set -e
 
-BASEVERSION=0.9.1
+BASEVERSION=0.9.2
 
 if [ -z "$TRAVIS_TAG" ];
 then
